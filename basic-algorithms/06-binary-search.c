@@ -1,35 +1,36 @@
 #include <stdio.h>
 
-int binarySearch(int arr[], int size, int target) {
-    int left = 0, right = size - 1;
+// Binary Search function
+int search(int* nums, int numsSize, int target) {
+    int left = 0;
+    int right = numsSize - 1;
 
-    while(left <= right) {
+    while (left <= right) {
         int mid = left + (right - left) / 2;
 
-        if(arr[mid] == target) {
-            return mid;
-        }
-        else if(arr[mid] < target) {
-            left = mid + 1;
-        }
-        else {
-            right = mid - 1;
+        if (nums[mid] == target) {
+            return mid;  // found
+        } else if (nums[mid] < target) {
+            left = mid + 1;  // search right half
+        } else {
+            right = mid - 1; // search left half
         }
     }
-    return -1;
+    return -1;  // not found
 }
 
 int main() {
-    int arr[] = {1, 3, 5, 7, 9, 11};
-    int size = sizeof(arr) / sizeof(arr[0]);
-    int target = 7;
+    int nums[] = {-1, 0, 3, 5, 9, 12};
+    int numsSize = sizeof(nums) / sizeof(nums[0]);
+    int target = 9;
 
-    int result = binarySearch(arr, size, target);
+    int result = search(nums, numsSize, target);
 
-    if(result != -1)
-        printf("Element found at index: %d\n", result);
-    else
-        printf("Element not found\n");
+    if (result != -1) {
+        printf("Element %d found at index: %d\n", target, result);
+    } else {
+        printf("Element %d not found\n", target);
+    }
 
     return 0;
 }
