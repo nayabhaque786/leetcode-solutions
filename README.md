@@ -1,6 +1,5 @@
 # leetcode-solutions
 
-# LeetCode Solutions
 
 **Name:** NAYAB NEHAL HAQUE
 **Roll Number:** R25EF160 
